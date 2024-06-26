@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const ProgressScreen(),
+        '/': (context) => const RecentScreen(),
         '/login': (context) =>  LoginScreen (),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
