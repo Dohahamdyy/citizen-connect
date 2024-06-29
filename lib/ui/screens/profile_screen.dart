@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 
@@ -7,118 +7,116 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor: Colors.amber,
+    return Scaffold(
+      backgroundColor: AppColors.yellowColor,
       appBar: AppBar(
-        leading: Stack(
-          children: [
-            Positioned(
-              bottom: 12,
-              child: Container(
-                width: 28,
-                height: 28,
-                decoration: const BoxDecoration(
-                  color: Colors.amberAccent,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: const Icon(
-                Icons.keyboard_backspace_rounded,
-                color: Colors.black,
-                size: 36,
-              ),
-            ),
-          ],
-        ),
+        leading: const CustomBackButton(),
         backgroundColor: AppColors.yellowColor,
-        title: Text('Profile',
-        style: TextStyle(fontWeight: FontWeight.w700),),
-      ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(),
-            ),
-            Container(
-              child: Center(
-                child: CircleAvatar(backgroundImage: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPCLWMmAY6mvPuZuQSP7ifTYm6osktNLg_Rg&s'),
-                  radius: 40.0,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 4,
-              child: Container(
-                padding:  EdgeInsets.all(40),
-                decoration:  BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(28),
-                    topRight: Radius.circular(28),
-                  ),
-                ),
-                child:
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Text('User123',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w900,
-                          ),),
-                      ),
-                      SizedBox(height: 25.0,),
-                      Row(children: [
-                        Image.asset('assets/images/Icon Profile.png'),
-                        SizedBox(width: 10.0,),
-                        Text('Edit Profile',
-                          style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize:20.0 ),),
-                      ],),
-                      SizedBox(height: 20.0,),
-                      Row(children: [
-                        Image.asset('assets/images/Icon Security.png'),
-                        SizedBox(width: 10.0,),
-                        Text('Terms and conditions',
-                          style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize:20.0 ),),
-                      ],),
-                      SizedBox(height: 20.0,),
-                      Row(children: [
-                        Image.asset('assets/images/Icon Setting.png'),
-                        SizedBox(width: 10.0,),
-                        Text('Settings',
-                          style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize:20.0 ),),
-                      ],),
-                      SizedBox(height: 20.0,),
-                      Row(children: [
-                        Image.asset('assets/images/Icon Logout.png'),
-                        SizedBox(width: 10.0,),
-                        Text('Logout',
-                          style: TextStyle(fontWeight: FontWeight.w500,
-                              fontSize:20.0 ),),
-                      ],),
-                  
-                  
-                  
-                  
-                    ],
-                  ),
-                ),
-
-              ),
-            ),
-          ],
+        title: const Text(
+          'Profile',
+          style: TextStyle(fontWeight: FontWeight.w700),
         ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(),
+          ),
+          const Center(
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPCLWMmAY6mvPuZuQSP7ifTYm6osktNLg_Rg&s'),
+              radius: 40,
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Container(
+              padding: const EdgeInsets.all(40),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(28),
+                  topRight: Radius.circular(28),
+                ),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const Center(
+                      child: Text(
+                        'User123',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    ProfileItem(
+                      title: 'Edit Profile',
+                      icon: 'assets/images/Icon Profile.png',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 20),
+                    ProfileItem(
+                      title: 'Terms and conditions',
+                      icon: 'assets/images/Icon Security.png',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 20),
+                    ProfileItem(
+                      title: 'Settings',
+                      icon: 'assets/images/Icon Setting.png',
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 20),
+                    ProfileItem(
+                      title: 'Logout',
+                      icon: 'assets/images/Icon Logout.png',
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
+class ProfileItem extends StatelessWidget {
+  const ProfileItem({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
+
+  final String title;
+  final String icon;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => onTap(),
+      child: Row(
+        children: [
+          Image.asset(icon),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          ),
+        ],
+      ),
     );
   }
 }
