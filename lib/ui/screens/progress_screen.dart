@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:flutter_demo/ui/widgets/check_circle.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProgressScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class ProgressScreen extends StatefulWidget {
 class _ProgressScreenState extends State<ProgressScreen> {
   XFile? pickedImage;
   String? description;
-  String? location;
+  Position? location;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +132,16 @@ class _ProgressScreenState extends State<ProgressScreen> {
                               print('Description: $desc');
                               setState(() => description = desc);
                             }
-                          } else if (location != null) {}
+                          } else if (location == null) {
+                            final position =
+                                await Navigator.of(context).pushNamed('/location') as Position?;
+                            if (position != null) {
+                              print('Location: $location');
+                              setState(() => location = position);
+                            }
+                          } else {
+                            // submit report
+                          }
                         },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 100),

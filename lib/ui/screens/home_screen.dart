@@ -179,28 +179,31 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 10),
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          /// replace container with image
-          Container(
-            width: 74,
-            height: 74,
-            decoration: const BoxDecoration(
-              color: AppColors.yellowColor,
-              shape: BoxShape.circle,
+    return InkWell(
+      onTap: () => Navigator.of(context).pushNamed('/progress'),
+      child: Container(
+        margin: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            /// replace container with image
+            Container(
+              width: 74,
+              height: 74,
+              decoration: const BoxDecoration(
+                color: AppColors.yellowColor,
+                shape: BoxShape.circle,
+              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'Roads',
-            style: TextStyle(
-              fontSize: 14,
+            const SizedBox(height: 10),
+            const Text(
+              'Roads',
+              style: TextStyle(
+                fontSize: 14,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
