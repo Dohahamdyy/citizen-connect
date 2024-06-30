@@ -75,6 +75,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
+
+              /// ===================
               const Text(
                 'Categories',
                 style: TextStyle(
@@ -89,6 +91,8 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, i) => const CategoryItem(),
                 ),
               ),
+
+              /// ===================
               const Text(
                 'Recent Complaints',
                 style: TextStyle(

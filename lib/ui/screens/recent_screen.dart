@@ -15,34 +15,10 @@ class RecentScreen extends StatelessWidget {
           child: Column(
             children: [
               /// ==========================
-              CustomAppbar(
+              const CustomAppbar(
                 title: 'Recent',
                 subtitle: 'My reports',
               ),
-              // const Row(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Column(
-              //       crossAxisAlignment: CrossAxisAlignment.start,
-              //       children: [
-              //         Text(
-              //           'Recent',
-              //           style: TextStyle(
-              //             fontWeight: FontWeight.w700,
-              //             fontSize: 21,
-              //           ),
-              //         ),
-              //         Text(
-              //           'My reports',
-              //           style: TextStyle(
-              //             fontWeight: FontWeight.w500,
-              //             fontSize: 14,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ],
-              // ),
               const SizedBox(height: 20),
               Expanded(
                 child: ListView.builder(
@@ -91,69 +67,68 @@ class ReportItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.network(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoBpf5jv-GXMYKmOxVCaRjvZ_ji0fX473wLQ&s',
-                height: 80,
-                width: 80,
+    return InkWell(
+      onTap: () => Navigator.of(context).pushNamed('/report'),
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoBpf5jv-GXMYKmOxVCaRjvZ_ji0fX473wLQ&s',
+                  height: 80,
+                  width: 80,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          const Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'report 3565',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Standard Delivery',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Status',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    CheckCircle(type: 1),
-                  ],
-                ),
-              ],
+            const SizedBox(
+              width: 10,
             ),
-          ),
-          const SizedBox(
-            width: 30,
-          ),
-          Container(
-            // color: Colors.pinkAccent,
-            child: Column(
+            const Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'report 3565',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Standard Delivery',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Status',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      CheckCircle(type: 1),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                // const Text('1 item'),
                 const SizedBox(height: 40),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -172,8 +147,8 @@ class ReportItem extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
