@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/ui/utils/colors.dart';
+import 'package:flutter_demo/ui/utils/common.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -67,14 +70,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     const SizedBox(height: 30),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Name',
                       ),
                       controller: _nameController,
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Email',
                       ),
                       controller: _emailController,
@@ -82,15 +85,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'ID',
+                      decoration: textFieldDecoration.copyWith(
+                        labelText: 'Phone number',
                       ),
                       controller: _idController,
                       keyboardType: TextInputType.number,
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Password',
                       ),
                       controller: _passwordController,
@@ -98,7 +101,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Confirm Password',
                       ),
                       controller: _confirmPasswordController,
@@ -111,26 +114,54 @@ class _SignupScreenState extends State<SignupScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        Navigator.of(context).pushNamed('/home');
-                      }
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.amberAccent,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 80),
-                      child: Text(
-                        'Create account',
-                        style: TextStyle(fontSize: 18),
+                  Material(
+                    borderRadius: BorderRadius.circular(30),
+                    elevation: 5,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.amberAccent,
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            _formKey.currentState!.save();
+                            Navigator.of(context).pushNamed('/main');
+                          }
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 80),
+                          child: Text(
+                            'Create account',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 15),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Already have an account? ',
+                    style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    children: [
+                      TextSpan(
+                        text: 'Login',
+                        style: const TextStyle(
+                          color: AppColors.yellowColor,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

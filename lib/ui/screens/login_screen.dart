@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
+import 'package:flutter_demo/ui/utils/common.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/back_button.dart';
@@ -39,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     TextFormField(
                       controller: _emailController,
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Email',
                       ),
                       validator: (value) {
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 20),
                     TextFormField(
                       controller: _passwordController,
-                      decoration: const InputDecoration(
+                      decoration: textFieldDecoration.copyWith(
                         labelText: 'Password',
                       ),
                       validator: (value) {
@@ -118,9 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
               RichText(
                 text: TextSpan(
                   text: 'Don\'t have an account? ',
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
+                  style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
                       text: 'Sign up',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/ui/utils/common.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 
 class Forgetpasswordscreen extends StatelessWidget {
@@ -7,8 +8,8 @@ class Forgetpasswordscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Padding(
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,9 +29,10 @@ class Forgetpasswordscreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-               const Center(
+              const Center(
                 child: Text(
-                  'Please enter your email address, you will receive a link to creat a new password',
+                  'Please enter your email address, you will receive a link to create a new password',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w600,
@@ -38,50 +40,55 @@ class Forgetpasswordscreen extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
               TextFormField(
-                onFieldSubmitted: (value)
-                {
-                  print(value);
-
-                },
-                onChanged: (value)
-                {
+                onFieldSubmitted: (value) {
                   print(value);
                 },
-                decoration: const InputDecoration(
+                onChanged: (value) {
+                  print(value);
+                },
+                decoration: textFieldDecoration.copyWith(
                   hintText: 'Enter your email',
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email,
                   ),
-
                 ),
+                keyboardType: TextInputType.emailAddress,
               ),
-              const SizedBox(height: 10,),
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: 50.0,
-                    vertical: 20.0
-                ),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.amberAccent,
-                    borderRadius: BorderRadius.circular(30)),
-                height: 50.0,
-                child: MaterialButton(
-                  onPressed: ()
-                  {
-                  },
-                  child: const Text(
-                    'Send',
-                    style: TextStyle(
-                      color: Colors.black,
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Material(
+                    borderRadius: BorderRadius.circular(30),
+                    elevation: 5,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.amberAccent,
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {},
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 80),
+                          child: Text(
+                            'Send',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-
             ],
-          )),
-    ));
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,23 +20,20 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.yellowColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Citizen\nConnect',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 50,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-              ),
+            SvgPicture.asset(
+              'assets/images/app_logo.svg',
+              height: 100,
+              // width: 200,
+              color: Colors.white,
             ),
-            SizedBox(height: 100),
-            Text(
+            const SizedBox(height: 100),
+            const Text(
               'Welcome',
               style: TextStyle(
                 fontSize: 40,
