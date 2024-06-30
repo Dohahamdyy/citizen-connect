@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/utils/common.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../widgets/back_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -44,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: 'Email',
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || !value.contains('@') || !value.contains('.')) {
+                        if (value!.isEmpty || !emailRegex.hasMatch(value)) {
                           return 'Email is required';
                         }
                         return null;
@@ -99,6 +98,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: MaterialButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        SharedPreferences.getInstance().then((prefs) {
+                          prefs.setBool('is_logged_in', true);
+                        });
                         Navigator.of(context).pushNamed('/main');
                       }
                     },

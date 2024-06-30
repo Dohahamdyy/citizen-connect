@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/common.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 
-class Forgetpasswordscreen extends StatelessWidget {
-  const Forgetpasswordscreen({super.key});
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),

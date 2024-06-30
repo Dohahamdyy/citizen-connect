@@ -19,78 +19,86 @@ class _ProgressScreenState extends State<ProgressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: ListView(
+          child: Column(
             children: [
-              /// ==========================
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              ListView(
+                shrinkWrap: true,
                 children: [
-                  const CustomBackButton(),
-                  Center(
-                    child: Image.asset(
-                      'assets/images/vector.png',
-                      width: 178,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 40),
-
-              /// ==========================
-              Row(
-                children: [
+                  /// ==========================
                   Column(
-                    children: [
-                      CheckCircle(type: pickedImage == null ? 2 : 1),
-                      Container(
-                        width: 5,
-                        height: 80,
-                        color: pickedImage == null ? Colors.grey.shade300 : AppColors.greenColor,
-                      ),
-                      CheckCircle(type: description == null ? 2 : 1),
-                      Container(
-                        width: 5,
-                        height: 80,
-                        color: description == null ? Colors.grey.shade300 : AppColors.greenColor,
-                      ),
-                      CheckCircle(type: location == null ? 2 : 1),
-                    ],
-                  ),
-                  const SizedBox(width: 15),
-                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Take/ Upload the photo',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
+                      const CustomBackButton(),
+                      Center(
+                        child: Image.asset(
+                          'assets/images/vector.png',
+                          width: 178,
                         ),
                       ),
-                      SizedBox(
-                        width: 5,
-                        height: 85,
+                    ],
+                  ),
+                  const SizedBox(height: 40),
+
+                  /// ==========================
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          CheckCircle(type: pickedImage == null ? 2 : 1),
+                          Container(
+                            width: 5,
+                            height: 80,
+                            color:
+                                pickedImage == null ? Colors.grey.shade300 : AppColors.greenColor,
+                          ),
+                          CheckCircle(type: description == null ? 2 : 1),
+                          Container(
+                            width: 5,
+                            height: 80,
+                            color:
+                                description == null ? Colors.grey.shade300 : AppColors.greenColor,
+                          ),
+                          CheckCircle(type: location == null ? 2 : 1),
+                        ],
                       ),
-                      Text(
-                        'Write your description',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                        height: 85,
-                      ),
-                      Text(
-                        'Locate your location',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      const SizedBox(width: 15),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Take/ Upload the photo',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                            height: 85,
+                          ),
+                          Text(
+                            'Write your description',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                            height: 85,
+                          ),
+                          Text(
+                            'Locate your location',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

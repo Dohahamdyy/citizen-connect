@@ -3,8 +3,6 @@ import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:flutter_demo/ui/widgets/check_circle.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
 
-
-
 class MyReportScreen extends StatelessWidget {
   const MyReportScreen({super.key});
 
@@ -14,6 +12,7 @@ class MyReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -47,7 +46,7 @@ class MyReportScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 40),
-            
+
                 /// ==========================
                 Row(
                   children: [
@@ -58,7 +57,7 @@ class MyReportScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 15),
-                     Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -103,11 +102,11 @@ class MyReportScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 const Divider(),
                 const SizedBox(height: 5),
-            
+
                 /// ==========================
-                 Padding(
-                   padding: const EdgeInsets.all(2.0),
-                   child: Column(
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -158,12 +157,12 @@ class MyReportScreen extends StatelessWidget {
                         ],
                       ),
                     ],
-                                   ),
-                 ),
+                  ),
+                ),
                 const SizedBox(height: 20),
                 const Divider(),
                 const SizedBox(height: 20),
-            
+
                 /// ==========================
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,7 +195,7 @@ class MyReportScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(width: 15),
-                         Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(

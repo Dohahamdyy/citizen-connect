@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -68,7 +70,13 @@ class ProfileScreen extends StatelessWidget {
                           ProfileItem(
                             title: 'Logout',
                             icon: 'assets/images/Icon Logout.png',
-                            onTap: () {},
+                            onTap: () {
+                              SharedPreferences.getInstance().then((prefs) {
+                                prefs.setBool('is_logged_in', false);
+                              });
+                              Navigator.of(context)
+                                  .pushNamedAndRemoveUntil('/login', (route) => false);
+                            },
                           ),
                         ],
                       ),
@@ -77,13 +85,19 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const Positioned(
-              top: 140,
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPCLWMmAY6mvPuZuQSP7ifTYm6osktNLg_Rg&s',
+            Positioned(
+              top: 120,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/user_icon.svg',
+                      width: 100,
+                    ),
+                  ],
                 ),
-                radius: 40,
               ),
             ),
           ],

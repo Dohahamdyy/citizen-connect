@@ -80,6 +80,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       decoration: textFieldDecoration.copyWith(
                         labelText: 'Email',
                       ),
+                      validator: (value) {
+                        if (value!.isEmpty || !emailRegex.hasMatch(value)) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                     ),

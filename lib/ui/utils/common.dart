@@ -16,3 +16,5 @@ final textFieldDecoration = InputDecoration(
     ),
   ),
 );
+
+RegExp emailRegex = RegExp(r'(^[a-zA-Z\d+_.-]+@[a-zA-Z\d.-]+.[a-z]$)');

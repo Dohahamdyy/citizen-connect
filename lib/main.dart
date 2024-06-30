@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/ui/screens/Forget_password_screen.dart';
+import 'package:flutter_demo/ui/screens/description_screen.dart';
+import 'package:flutter_demo/ui/screens/forget_password_screen.dart';
 import 'package:flutter_demo/ui/screens/home_screen.dart';
 import 'package:flutter_demo/ui/screens/login_screen.dart';
 import 'package:flutter_demo/ui/screens/main_screen.dart';
@@ -38,12 +39,13 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
         '/verify': (context) => const VerifyCodeScreen(),
-        '/forget': (context) => const Forgetpasswordscreen(),
+        '/forget': (context) => const ForgetPasswordScreen(),
         '/progress': (context) => const ProgressScreen(),
         '/recent': (context) => const RecentScreen(),
         '/welcome': (context) => const WelcomeScreen(),
         '/report': (context) => const MyReportScreen(),
         '/main': (context) => const MainScreen(),
+        '/description': (context) => DescriptionScreen(),
       },
     );
   }
