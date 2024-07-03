@@ -29,7 +29,7 @@ class RecentScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               Material(
                 borderRadius: BorderRadius.circular(30),
                 child: Container(
