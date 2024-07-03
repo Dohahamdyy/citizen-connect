@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const StayScreen(),
+        '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -54,6 +54,11 @@ class MyApp extends StatelessWidget {
         '/main': (context) => const MainScreen(),
         '/description': (context) => DescriptionScreen(),
         '/location': (context) => const LocationScreen(),
+        '/hello': (context) => const HelloScreen(),
+        '/stay': (context) => const StayScreen(),
+        '/notifications': (context) => const NotificationsScreen(),
+        '/password-settings': (context) => const PasswordSettingsScreen(),
+        '/settings': (context) => const SettingsScreen(),
       },
     );
   }

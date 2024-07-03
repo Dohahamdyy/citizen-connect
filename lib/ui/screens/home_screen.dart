@@ -83,14 +83,39 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, i) => const CategoryItem(),
-                ),
+              // SizedBox(
+              //   height: 150,
+              //   child: ListView.builder(
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: 4,
+              //     itemBuilder: (context, i) => const CategoryItem(),
+              //   ),
+              // ),
+              const Row(
+                children: [
+                  CategoryItem(
+                    title: 'Other',
+                    image: 'assets/images/add_icon.png',
+                    backgroundColor: Colors.green,
+                  ),
+                  CategoryItem(
+                    title: 'Environmental',
+                    image: 'assets/images/env_icon.png',
+                    backgroundColor: Colors.yellow,
+                  ),
+                  CategoryItem(
+                    title: 'Electric',
+                    image: 'assets/images/elec_icon.png',
+                    backgroundColor: Colors.orangeAccent,
+                  ),
+                  CategoryItem(
+                    title: 'Road',
+                    image: 'assets/images/road_icon.png',
+                    backgroundColor: Colors.yellow,
+                  ),
+                ],
               ),
+              Divider(height: 52, color: Colors.grey.shade400),
 
               /// ===================
               const Text(
@@ -175,7 +200,16 @@ class RecentComplaintItem extends StatelessWidget {
 }
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  const CategoryItem({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.backgroundColor,
+  });
+
+  final String title;
+  final String image;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -186,19 +220,20 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            /// replace container with image
             Container(
-              width: 74,
-              height: 74,
-              decoration: const BoxDecoration(
-                color: AppColors.yellowColor,
+              width: 65,
+              height: 65,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: backgroundColor.withOpacity(0.2),
                 shape: BoxShape.circle,
               ),
+              child: Image.asset(image),
             ),
             const SizedBox(height: 10),
-            const Text(
-              'Roads',
-              style: TextStyle(
+            Text(
+              title,
+              style: const TextStyle(
                 fontSize: 14,
               ),
             ),
