@@ -83,15 +83,8 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              // SizedBox(
-              //   height: 150,
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: 4,
-              //     itemBuilder: (context, i) => const CategoryItem(),
-              //   ),
-              // ),
               const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CategoryItem(
                     title: 'Other',

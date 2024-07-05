@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_demo/ui/widgets/back_button.dart';
+import 'package:flutter_demo/ui/widgets/small_appbar.dart';
 
-class NotificationSettingsScreen extends StatelessWidget {
+class NotificationSettingsScreen extends StatefulWidget {
   const NotificationSettingsScreen({super.key});
 
+  @override
+  State<NotificationSettingsScreen> createState() => _NotificationSettingsScreenState();
+}
+
+class _NotificationSettingsScreenState extends State<NotificationSettingsScreen> {
+  bool generalNotification = true;
+  bool sound = true;
+  bool soundCall = true;
+  bool vibrate = true;
+  bool reportUpdate = true;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +28,13 @@ class NotificationSettingsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 10),
-                const Text(
-                  'Notifiction settings',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                ),
+                const SmallAppbar(title: 'Notification Settings'),
                 Expanded(
                   flex: 1,
                   child: Container(),
                 ),
                 Expanded(
-                  flex: 7,
+                  flex: 8,
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: const BoxDecoration(
@@ -37,23 +44,46 @@ class NotificationSettingsScreen extends StatelessWidget {
                         topRight: Radius.circular(28),
                       ),
                     ),
-                    child:  SingleChildScrollView(
+                    child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          SizedBox(height: 25),
-                          Row(
-                            children: [
-                              Text('General notifications',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              ),),
-                              Switch(value: , onChanged: ,),
-
-                            ],
+                          const SizedBox(height: 25),
+                          buildSettingItem(
+                            'General notifications',
+                            generalNotification,
+                            (value) {
+                              setState(() => generalNotification = value);
+                            },
                           ),
-
-                          SizedBox(height: 20),],
+                          buildSettingItem(
+                            'Sound',
+                            sound,
+                            (value) {
+                              setState(() => sound = value);
+                            },
+                          ),
+                          buildSettingItem(
+                            'Sound Call',
+                            soundCall,
+                            (value) {
+                              setState(() => soundCall = value);
+                            },
+                          ),
+                          buildSettingItem(
+                            'Vibrate',
+                            vibrate,
+                            (value) {
+                              setState(() => vibrate = value);
+                            },
+                          ),
+                          buildSettingItem(
+                            'Report Update',
+                            reportUpdate,
+                            (value) {
+                              setState(() => reportUpdate = value);
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -63,6 +93,32 @@ class NotificationSettingsScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildSettingItem(
+    String title,
+    bool value,
+    Function(bool) onChanged,
+  ) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        Switch(
+          value: value,
+          onChanged: onChanged,
+          activeColor: const Color(0xFF01BF92),
+          thumbColor: WidgetStateProperty.all(Colors.white),
+          inactiveTrackColor: Colors.grey.shade300,
+        ),
+      ],
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
+  const CustomBackButton({super.key, this.color = Colors.amberAccent});
+
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +14,8 @@ class CustomBackButton extends StatelessWidget {
           child: Container(
             width: 28,
             height: 28,
-            decoration: const BoxDecoration(
-              color: Colors.amberAccent,
+            decoration: BoxDecoration(
+              color: color,
               shape: BoxShape.circle,
             ),
           ),
