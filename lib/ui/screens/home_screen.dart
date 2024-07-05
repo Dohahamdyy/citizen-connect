@@ -81,6 +81,7 @@ class HomeScreen extends StatelessWidget {
                 'Categories',
                 style: TextStyle(
                   fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const Row(
@@ -115,12 +116,29 @@ class HomeScreen extends StatelessWidget {
                 'Recent Complaints',
                 style: TextStyle(
                   fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, i) => const RecentComplaintItem(),
+                child: ListView(
+                  // itemCount: 3,
+                  children: const [
+                    RecentComplaintItem(
+                      image: 'assets/images/elec_icon.png',
+                      category: 'Electric',
+                      text: 'aaa',
+                    ),
+                    RecentComplaintItem(
+                      image: 'assets/images/road_icon.png',
+                      category: 'Road',
+                      text: 'aaa',
+                    ),
+                    RecentComplaintItem(
+                      image: 'assets/images/env_icon.png',
+                      category: 'Environmental',
+                      text: 'aaa',
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -132,61 +150,66 @@ class HomeScreen extends StatelessWidget {
 }
 
 class RecentComplaintItem extends StatelessWidget {
-  const RecentComplaintItem({super.key});
+  const RecentComplaintItem({
+    super.key,
+    required this.image,
+    required this.category,
+    required this.text,
+  });
+
+  final String image;
+  final String category;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 10),
-      padding: const EdgeInsets.all(10),
-      child: Row(
-        children: [
-          /// replace container with image
-          Container(
-            width: 50,
-            height: 50,
-            decoration: const BoxDecoration(
-              color: AppColors.yellowColor,
-              shape: BoxShape.circle,
-            ),
-          ),
-          const SizedBox(width: 20),
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Traffic | 2days',
-                style: TextStyle(fontSize: 14, color: AppColors.greyColor),
-              ),
-              Text(
-                'Damaged traffic signal',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ],
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {},
-            child: const Row(
+    return Card(
+      color: Colors.white,
+      child: Container(
+        margin: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          children: [
+            Image.asset(image, width: 66, height: 66),
+            const SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'See All',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors.yellowColor,
-                  ),
+                  '$category | 2days',
+                  style: const TextStyle(fontSize: 14, color: AppColors.greyColor),
                 ),
-                Icon(
-                  Icons.arrow_forward,
-                  size: 15,
-                  color: AppColors.yellowColor,
+                const SizedBox(height: 10),
+                Text(
+                  text,
+                  style: const TextStyle(
+                    fontSize: 15,
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
+            const Spacer(),
+            InkWell(
+              onTap: () {},
+              child: const Row(
+                children: [
+                  Text(
+                    'See All',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: AppColors.yellowColor,
+                    ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 15,
+                    color: AppColors.yellowColor,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

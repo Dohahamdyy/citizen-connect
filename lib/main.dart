@@ -9,7 +9,6 @@ import 'package:flutter_demo/ui/screens/main_screen.dart';
 import 'package:flutter_demo/ui/screens/notification_settings_screen.dart';
 import 'package:flutter_demo/ui/screens/notifications_screen.dart';
 import 'package:flutter_demo/ui/screens/password_settings_screen.dart';
-import 'package:flutter_demo/ui/screens/profile_screen.dart';
 import 'package:flutter_demo/ui/screens/progress_screen.dart';
 import 'package:flutter_demo/ui/screens/ready_screen.dart';
 import 'package:flutter_demo/ui/screens/recent_screen.dart';
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const ResetPasswordScreen(),
+        '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -63,7 +62,8 @@ class MyApp extends StatelessWidget {
         '/notifications': (context) => const NotificationsScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/notification-settings': (context) => const NotificationSettingsScreen(),
-        '/password-settings': (context) => PasswordSettingsScreen(),
+        '/password-settings': (context) => const PasswordSettingsScreen(),
+        '/reset-password': (context) => const ResetPasswordScreen(),
       },
     );
   }
