@@ -113,7 +113,7 @@ class NotificationItem extends StatelessWidget {
                       SizedBox(height: 5),
                       Text(
                         'Thank you for using the application ,Your report has been submitted',
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(fontSize: 12),
                         textAlign: TextAlign.center,
                       )
                     ],

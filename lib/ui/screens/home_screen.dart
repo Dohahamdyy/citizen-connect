@@ -221,9 +221,9 @@ class CategoryItem extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: 65,
-              height: 65,
-              padding: const EdgeInsets.all(8),
+              width: 45,
+              height: 45,
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: backgroundColor.withOpacity(0.2),
                 shape: BoxShape.circle,

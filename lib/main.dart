@@ -7,9 +7,9 @@ import 'package:flutter_demo/ui/screens/location_screen.dart';
 import 'package:flutter_demo/ui/screens/login_screen.dart';
 import 'package:flutter_demo/ui/screens/main_screen.dart';
 import 'package:flutter_demo/ui/screens/notifications_screen.dart';
-import 'package:flutter_demo/ui/screens/password_settings_screen.dart';
 import 'package:flutter_demo/ui/screens/profile_screen.dart';
 import 'package:flutter_demo/ui/screens/progress_screen.dart';
+import 'package:flutter_demo/ui/screens/ready_screen.dart';
 import 'package:flutter_demo/ui/screens/recent_screen.dart';
 import 'package:flutter_demo/ui/screens/report_screen.dart';
 import 'package:flutter_demo/ui/screens/settings_screen.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const NotificationsScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -56,8 +56,8 @@ class MyApp extends StatelessWidget {
         '/location': (context) => const LocationScreen(),
         '/hello': (context) => const HelloScreen(),
         '/stay': (context) => const StayScreen(),
+        '/ready': (context) => const ReadyScreen(),
         '/notifications': (context) => const NotificationsScreen(),
-        '/password-settings': (context) => const PasswordSettingsScreen(),
         '/settings': (context) => const SettingsScreen(),
       },
     );

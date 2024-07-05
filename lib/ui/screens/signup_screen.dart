@@ -12,7 +12,8 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
+  final _firstnameController = TextEditingController();
+  final _lastnameController = TextEditingController();
   final _emailController = TextEditingController();
   final _idController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -53,7 +54,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 25),
                 const Row(
                   children: [
                     SizedBox(width: 12),
@@ -70,15 +71,23 @@ class _SignupScreenState extends State<SignupScreen> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 25),
                       TextFormField(
                         decoration: textFieldDecoration.copyWith(
-                          labelText: 'Name',
+                          labelText: 'First name',
                         ),
-                        controller: _nameController,
+                        controller: _firstnameController,
                         textInputAction: TextInputAction.next,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
+                      TextFormField(
+                        decoration: textFieldDecoration.copyWith(
+                          labelText: 'Last name',
+                        ),
+                        controller: _lastnameController,
+                        textInputAction: TextInputAction.next,
+                      ),
+                      const SizedBox(height: 15),
                       TextFormField(
                         decoration: textFieldDecoration.copyWith(
                           labelText: 'Email',
@@ -93,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
                       TextFormField(
                         decoration: textFieldDecoration.copyWith(
                           labelText: 'Phone number',
@@ -102,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
                       TextFormField(
                         decoration: textFieldDecoration.copyWith(
                           labelText: 'Password',
@@ -111,7 +120,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         obscureText: true,
                         textInputAction: TextInputAction.next,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
                       TextFormField(
                         decoration: textFieldDecoration.copyWith(
                           labelText: 'Confirm Password',
@@ -142,11 +151,11 @@ class _SignupScreenState extends State<SignupScreen> {
                             }
                           },
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 80),
+                            padding: EdgeInsets.symmetric(horizontal: 60),
                             child: Text(
                               'Create account',
                               style: TextStyle(
-                                fontSize: 22,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

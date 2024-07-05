@@ -46,7 +46,9 @@ class StayScreen extends StatelessWidget {
                         color: Colors.amberAccent,
                       ),
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/ready');
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 50),
                           child: Text(
