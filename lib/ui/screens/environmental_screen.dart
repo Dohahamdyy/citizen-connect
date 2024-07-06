@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/ui/screens/home_screen.dart';
+import 'package:flutter_demo/ui/utils/colors.dart';
+import 'package:flutter_demo/ui/widgets/timeline_card_item.dart';
 
 import '../widgets/custom_appbar.dart';
 
@@ -12,77 +12,47 @@ class EnvironmentalScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            const CustomAppbar(title: 'Environmental'),
-            const SizedBox(
-              height: 35,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.person,
-                    size: 12,
-                  ),
-                  Text(
-                    'User123',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              const CustomAppbar(
+                title: 'Environmental',
+                withBackButton: true,
               ),
-            ),
-            SizedBox(height:10),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return const Carditem();
-                },
+              const SizedBox(
+                height: 35,
               ),
-            ),
-          ],
-        ),
-      )),
-    );
-  }
-}
-
-class Carditem extends StatelessWidget {
-  const Carditem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Image.asset('assets/images/card.png'),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
                   children: [
-                    Text(
-                      'Graffiti',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    Icon(
+                      Icons.person,
+                      size: 12,
+                      color: AppColors.greyColor,
                     ),
                     Text(
-                      'MAR 2023 | Asyut',
-                      style: TextStyle(fontSize: 13, color: Colors.redAccent),
+                      'User123',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppColors.greyColor,
+                      ),
                     ),
                   ],
                 ),
-                Icon(Icons.check_circle),
-              ],
-            ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: 1,
+                  itemBuilder: (context, index) {
+                    return const TimelineCardItem();
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

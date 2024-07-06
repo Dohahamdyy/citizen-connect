@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:flutter_demo/ui/widgets/check_circle.dart';
-import 'package:flutter_demo/ui/utils/colors.dart';
 
 class MyReportScreen extends StatelessWidget {
   const MyReportScreen({super.key});
@@ -60,7 +59,7 @@ class MyReportScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Graffiti',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
@@ -109,14 +108,14 @@ class MyReportScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Report Details',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -127,7 +126,7 @@ class MyReportScreen extends StatelessWidget {
                               color: greyColor,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'TRK452126545',
                             style: TextStyle(
                               fontSize: 15,
@@ -136,7 +135,7 @@ class MyReportScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -147,7 +146,7 @@ class MyReportScreen extends StatelessWidget {
                               color: greyColor,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Environmental',
                             style: TextStyle(
                               fontSize: 15,
@@ -198,7 +197,7 @@ class MyReportScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Reported',
                               style: TextStyle(
                                 fontSize: 15,
@@ -211,11 +210,11 @@ class MyReportScreen extends StatelessWidget {
                                 color: greyColor,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                               height: 70,
                             ),
-                            Text(
+                            const Text(
                               'Approved',
                               style: TextStyle(
                                 fontSize: 15,
@@ -228,11 +227,11 @@ class MyReportScreen extends StatelessWidget {
                                 color: greyColor,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                               height: 70,
                             ),
-                            Text(
+                            const Text(
                               'Submitted',
                               style: TextStyle(
                                 fontSize: 15,

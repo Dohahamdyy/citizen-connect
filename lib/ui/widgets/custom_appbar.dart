@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAppbar extends StatelessWidget {
-  const CustomAppbar({super.key, this.title, this.subtitle});
+  const CustomAppbar({
+    super.key,
+    this.title,
+    this.subtitle,
+    this.withBackButton = false,
+  });
 
   final String? title;
   final String? subtitle;
+  final bool withBackButton;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SvgPicture.asset(
-          'assets/images/user_icon.svg',
-        ),
+        withBackButton
+            ? const CustomBackButton()
+            : SvgPicture.asset(
+                'assets/images/user_icon.svg',
+              ),
         const SizedBox(width: 20),
         if (title != null)
           Column(

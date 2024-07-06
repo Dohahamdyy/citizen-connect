@@ -122,21 +122,24 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: ListView(
                   // itemCount: 3,
-                  children: const [
+                  children: [
                     RecentComplaintItem(
                       image: 'assets/images/elec_icon.png',
                       category: 'Electric',
                       text: 'aaa',
+                      onTap: () => Navigator.of(context).pushNamed('/electric'),
                     ),
                     RecentComplaintItem(
                       image: 'assets/images/road_icon.png',
                       category: 'Road',
                       text: 'aaa',
+                      onTap: () => Navigator.of(context).pushNamed('/road'),
                     ),
                     RecentComplaintItem(
                       image: 'assets/images/env_icon.png',
                       category: 'Environmental',
                       text: 'aaa',
+                      onTap: () => Navigator.of(context).pushNamed('/environmental'),
                     ),
                   ],
                 ),
@@ -155,11 +158,13 @@ class RecentComplaintItem extends StatelessWidget {
     required this.image,
     required this.category,
     required this.text,
+    required this.onTap,
   });
 
   final String image;
   final String category;
   final String text;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +181,7 @@ class RecentComplaintItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$category | 2days',
+                  '$category | 2 days',
                   style: const TextStyle(fontSize: 14, color: AppColors.greyColor),
                 ),
                 const SizedBox(height: 10),
@@ -190,7 +195,7 @@ class RecentComplaintItem extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () {},
+              onTap: () => onTap(),
               child: const Row(
                 children: [
                   Text(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
-import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:flutter_demo/ui/widgets/small_appbar.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {

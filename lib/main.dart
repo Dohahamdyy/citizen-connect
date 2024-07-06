@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/screens/description_screen.dart';
+import 'package:flutter_demo/ui/screens/electric_screen.dart';
+import 'package:flutter_demo/ui/screens/environmental_screen.dart';
 import 'package:flutter_demo/ui/screens/forget_password_screen.dart';
 import 'package:flutter_demo/ui/screens/hello_screen.dart';
 import 'package:flutter_demo/ui/screens/home_screen.dart';
@@ -15,6 +17,7 @@ import 'package:flutter_demo/ui/screens/ready_screen.dart';
 import 'package:flutter_demo/ui/screens/recent_screen.dart';
 import 'package:flutter_demo/ui/screens/report_screen.dart';
 import 'package:flutter_demo/ui/screens/reset_password_screen.dart';
+import 'package:flutter_demo/ui/screens/road_screen.dart';
 import 'package:flutter_demo/ui/screens/settings_screen.dart';
 import 'package:flutter_demo/ui/screens/signup_screen.dart';
 import 'package:flutter_demo/ui/screens/splash_screen.dart';
@@ -44,7 +47,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const ResetPasswordScreen(),
+        '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -63,7 +66,10 @@ class MyApp extends StatelessWidget {
         '/notifications': (context) => const NotificationsScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/notification-settings': (context) => const NotificationSettingsScreen(),
-        '/password-settings': (context) => PasswordSettingsScreen(),
+        '/password-settings': (context) => const PasswordSettingsScreen(),
+        '/electric': (context) => const ElectricScreen(),
+        '/environmental': (context) => const EnvironmentalScreen(),
+        '/road': (context) => const RoadScreen(),
       },
     );
   }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/widgets/small_appbar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
