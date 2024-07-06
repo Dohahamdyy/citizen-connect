@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const VerifyCodeScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -70,6 +70,7 @@ class MyApp extends StatelessWidget {
         '/electric': (context) => const ElectricScreen(),
         '/environmental': (context) => const EnvironmentalScreen(),
         '/road': (context) => const RoadScreen(),
+        '/reset-password': (context) => const ResetPasswordScreen(),
       },
     );
   }

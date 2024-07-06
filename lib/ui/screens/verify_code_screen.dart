@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-class VerifyCodeScreen extends StatelessWidget {
+class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({super.key});
+
+  @override
+  State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
+}
+
+class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+  TextEditingController? _controller;
+  String otpCode = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +47,52 @@ class VerifyCodeScreen extends StatelessWidget {
                   color: Color(0xFF626262),
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Expanded(
+                    child: Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: PinCodeTextField(
+                        enableActiveFill: true,
+                        appContext: context,
+                        pastedTextStyle: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        length: 6,
+                        animationDuration: Duration.zero,
+                        animationType: AnimationType.none,
+                        controller: _controller,
+                        beforeTextPaste: (text) =>
+                            (num.tryParse(text!) != null && text.length == 6),
+                        errorTextSpace: 2,
+                        pinTheme: PinTheme(
+                          disabledColor: AppColors.yellowColor,
+                          activeColor: AppColors.greyColor,
+                          inactiveColor: Colors.grey.shade500,
+                          activeFillColor: AppColors.greyColor.withOpacity(0.2),
+                          selectedColor: AppColors.greyColor,
+                          borderRadius: BorderRadius.circular(15),
+                          inactiveFillColor: Colors.white,
+                          selectedFillColor: Colors.white,
+                          shape: PinCodeFieldShape.box,
+                          borderWidth: 1,
+                          errorBorderColor: Colors.red,
+                          fieldHeight: 50,
+                          fieldWidth: 50,
+                        ),
+                        // controller: controller,
+                        keyboardType: TextInputType.number,
+                        autoFocus: true,
+                        onCompleted: (v) => otpCode = v,
+                        onChanged: (value) => otpCode = value,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
               Image.asset(
                 'assets/images/verify_icon.png',
               ),
@@ -80,11 +135,11 @@ class VerifyCodeScreen extends StatelessWidget {
                     child: const Text(
                       'Resend',
                       style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xFF5F5F5F),
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.underline,
-                      ),
+                          fontSize: 15,
+                          color: AppColors.yellowColor,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColors.yellowColor),
                     ),
                   ),
                 ],
