@@ -55,16 +55,18 @@ class ProfileScreen extends StatelessWidget {
                             onTap: () {},
                           ),
                           const SizedBox(height: 20),
-                          ProfileItem(
-                            title: 'Terms and conditions',
-                            icon: 'assets/images/Icon Security.png',
-                            onTap: () {},
-                          ),
-                          const SizedBox(height: 20),
+                          // ProfileItem(
+                          //   title: 'Terms and conditions',
+                          //   icon: 'assets/images/Icon Security.png',
+                          //   onTap: () {},
+                          // ),
+                          // const SizedBox(height: 20),
                           ProfileItem(
                             title: 'Settings',
                             icon: 'assets/images/Icon Setting.png',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/settings');
+                            },
                           ),
                           const SizedBox(height: 20),
                           ProfileItem(

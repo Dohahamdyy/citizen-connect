@@ -45,7 +45,7 @@ class CustomAppbar extends StatelessWidget {
         const SizedBox(width: 10),
         InkWell(
           onTap: () {
-            // Navigator.of(context).pushNamed('/notifications');
+            Navigator.of(context).pushNamed('/notifications');
           },
           child: SvgPicture.asset(
             'assets/images/notification_icon.svg',

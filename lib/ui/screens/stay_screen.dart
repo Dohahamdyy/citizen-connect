@@ -6,6 +6,7 @@ class StayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black12,
       body: Stack(
         children: [
           Image.asset(

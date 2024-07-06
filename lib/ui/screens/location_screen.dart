@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/ui/utils/colors.dart';
 import 'package:flutter_demo/ui/widgets/back_button.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -97,16 +98,68 @@ class CurrentLocationWidgetState extends State<CurrentLocationWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(location),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: _getCurrentLocation,
-            child: const Text('Get Current Location'),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.amberAccent.shade100,
+              ),
+              child: const Icon(
+                Icons.location_on,
+                size: 50,
+                color: AppColors.yellowColor,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Text(location, style: const TextStyle(color: Colors.white)),
+            const Text(
+              'What is Your Location?',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'We need to know your location in order to suggest nearby services.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: AppColors.greyColor,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Material(
+              borderRadius: BorderRadius.circular(30),
+              elevation: 5,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.amberAccent,
+                ),
+                child: MaterialButton(
+                  onPressed: _getCurrentLocation,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 60),
+                    child: Text(
+                      'Allow Location Access',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

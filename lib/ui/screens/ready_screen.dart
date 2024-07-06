@@ -14,9 +14,10 @@ class ReadyScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Text(
                   'Ready?',
@@ -25,13 +26,14 @@ class ReadyScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const Text(
-                  'Lets report',
+                  'Let\'s report',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 Material(
                   borderRadius: BorderRadius.circular(80),
                   elevation: 5,
@@ -57,12 +59,13 @@ class ReadyScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 20),
                 Material(
                   borderRadius: BorderRadius.circular(80),
                   elevation: 5,
                   child: Container(
                     decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 0.5),
                       borderRadius: BorderRadius.circular(50),
                       color: Colors.black,
                     ),
@@ -84,7 +87,6 @@ class ReadyScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),

@@ -49,7 +49,9 @@ class SettingsScreen extends StatelessWidget {
                           SettingItem(
                             title: 'Password Settings',
                             icon: 'assets/images/Group 365.png',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/password-settings');
+                            },
                           ),
                           const SizedBox(height: 20),
                           SettingItem(
