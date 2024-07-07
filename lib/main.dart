@@ -23,7 +23,6 @@ import 'package:flutter_demo/ui/screens/signup_screen.dart';
 import 'package:flutter_demo/ui/screens/splash_screen.dart';
 import 'package:flutter_demo/ui/screens/stay_screen.dart';
 import 'package:flutter_demo/ui/screens/verify_code_screen.dart';
-import 'package:flutter_demo/ui/screens/welcome_screen.dart';
 
 void main() {
   runApp(
@@ -56,7 +55,6 @@ class MyApp extends StatelessWidget {
         '/forget': (context) => const ForgetPasswordScreen(),
         '/progress': (context) => const ProgressScreen(),
         '/recent': (context) => const RecentScreen(),
-        '/welcome': (context) => const WelcomeScreen(),
         '/report': (context) => const MyReportScreen(),
         '/main': (context) => const MainScreen(),
         '/description': (context) => DescriptionScreen(),

@@ -14,7 +14,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
@@ -38,15 +38,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
+                      controller: _phoneController,
+                      keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                       decoration: textFieldDecoration.copyWith(
-                        labelText: 'Email',
+                        labelText: 'Phone',
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || !emailRegex.hasMatch(value)) {
-                          return 'Email is required';
+                        if (value!.isEmpty) {
+                          return 'Phone is required';
                         }
                         return null;
                       },
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: 'Password',
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || value.length < 6) {
+                        if (value!.isEmpty) {
                           return 'Password is required';
                         }
                         return null;
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SharedPreferences.getInstance().then((prefs) {
                           prefs.setBool('is_logged_in', true);
                         });
-                        Navigator.of(context).pushNamed('/main');
+                        Navigator.of(context).pushNamedAndRemoveUntil('/main', (route) => false);
                       }
                     },
                     child: const Padding(
