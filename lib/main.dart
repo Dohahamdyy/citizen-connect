@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ui/screens/description_screen.dart';
+import 'package:flutter_demo/ui/screens/edit_profile_screen.dart';
 import 'package:flutter_demo/ui/screens/electric_screen.dart';
 import 'package:flutter_demo/ui/screens/environmental_screen.dart';
 import 'package:flutter_demo/ui/screens/forget_password_screen.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_demo/ui/screens/main_screen.dart';
 import 'package:flutter_demo/ui/screens/notification_settings_screen.dart';
 import 'package:flutter_demo/ui/screens/notifications_screen.dart';
 import 'package:flutter_demo/ui/screens/password_settings_screen.dart';
-import 'package:flutter_demo/ui/screens/profile_screen.dart';
 import 'package:flutter_demo/ui/screens/progress_screen.dart';
 import 'package:flutter_demo/ui/screens/ready_screen.dart';
 import 'package:flutter_demo/ui/screens/recent_screen.dart';
@@ -45,9 +45,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
+        fontFamily: 'Poppins',
       ),
       routes: {
-        '/': (context) => const VerifyCodeScreen(),
+        '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
         '/environmental': (context) => const EnvironmentalScreen(),
         '/road': (context) => const RoadScreen(),
         '/reset-password': (context) => const ResetPasswordScreen(),
+        '/edit-profile': (context) => const EditProfileScreen(),
       },
     );
   }

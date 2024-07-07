@@ -15,7 +15,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final _firstnameController = TextEditingController();
   final _lastnameController = TextEditingController();
   final _emailController = TextEditingController();
-  final _idController = TextEditingController();
+  final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
@@ -107,7 +107,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         decoration: textFieldDecoration.copyWith(
                           labelText: 'Phone number',
                         ),
-                        controller: _idController,
+                        controller: _phoneController,
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                       ),

@@ -115,7 +115,7 @@ class ReportItem extends StatelessWidget {
                         'Status',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       CheckCircle(type: 1),

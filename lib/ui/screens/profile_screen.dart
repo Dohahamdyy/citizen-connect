@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    padding: const EdgeInsets.all(40),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -52,7 +52,9 @@ class ProfileScreen extends StatelessWidget {
                           ProfileItem(
                             title: 'Edit Profile',
                             icon: 'assets/images/Icon Profile.png',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pushNamed('/edit-profile');
+                            },
                           ),
                           const SizedBox(height: 20),
                           // ProfileItem(
@@ -73,11 +75,32 @@ class ProfileScreen extends StatelessWidget {
                             title: 'Logout',
                             icon: 'assets/images/Icon Logout.png',
                             onTap: () {
-                              SharedPreferences.getInstance().then((prefs) {
-                                prefs.setBool('is_logged_in', false);
-                              });
-                              Navigator.of(context)
-                                  .pushNamedAndRemoveUntil('/login', (route) => false);
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: const Text('Logout'),
+                                      content: const Text('Are you sure you want to logout?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: const Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            SharedPreferences.getInstance().then((prefs) {
+                                              prefs.setBool('is_logged_in', false);
+                                            });
+                                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                                '/login', (route) => false);
+                                          },
+                                          child: const Text('Logout'),
+                                        ),
+                                      ],
+                                    );
+                                  });
                             },
                           ),
                         ],
