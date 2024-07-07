@@ -121,7 +121,6 @@ class HomeScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                  // itemCount: 3,
                   children: [
                     RecentComplaintItem(
                       image: 'assets/images/elec_icon.png',
