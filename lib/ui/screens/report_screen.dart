@@ -232,7 +232,7 @@ class MyReportScreen extends StatelessWidget {
                               height: 70,
                             ),
                             const Text(
-                              'Submitted',
+                              'Solved',
                               style: TextStyle(
                                 fontSize: 15,
                               ),

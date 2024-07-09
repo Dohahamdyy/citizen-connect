@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
       ),
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const MyReportScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/home': (context) => const HomeScreen(),
