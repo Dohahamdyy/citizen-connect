@@ -192,13 +192,13 @@ class ProfilePictureUpdaterState extends State<ProfilePictureUpdater> {
         children: <Widget>[
           _imageFile != null
               ? CircleAvatar(
-                  radius: 50,
-                  backgroundImage: FileImage(_imageFile!) as ImageProvider,
-                )
+            radius: 50,
+            backgroundImage: FileImage(_imageFile!) as ImageProvider,
+          )
               : SvgPicture.asset(
-                  'assets/images/user_icon.svg',
-                  width: 100,
-                ),
+            'assets/images/user_icon.svg',
+            width: 100,
+          ),
           Positioned(
             bottom: 0,
             right: 0,

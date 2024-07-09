@@ -59,7 +59,7 @@ class MyReportScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                         Text(
                           'Graffiti',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
